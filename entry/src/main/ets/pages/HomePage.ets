@@ -5,7 +5,8 @@ import { Pages } from './Pages';
 export struct HomePage {
   @Consume('pageStack') pageStack: NavPathStack;
   context: UIContext = this.getUIContext()
-  tabBar1: ComponentContent<Object> = new ComponentContent(this.context, wrapBuilder(Header));
+  tabBar1: ComponentContent<Object> = new ComponentContent(this.context, wrapBuilder(header));
+
   @State headers: String[] = [
     'Top News', 'Sports', 'Economics', 'Sky News'
   ];
@@ -13,16 +14,21 @@ export struct HomePage {
   build() {
     NavDestination() {
       ArcList({ header: this.tabBar1 }) {
-        ForEach(this.headers, (item: string) => {
-          Headline({
-            title: item,
-            onNavigate: () => {
-              this.pageStack.pushPathByName(Pages.HeadlineFlow, item)
-            }
-          })
-        })
+        ForEach(
+          this.headers,
+          (item: string) => {
+            Headline({
+              title: item,
+              onNavigate: () => {
+                this.pageStack.pushPathByName(Pages.HeadlineFlow, item)
+              }
+            })
+          },
+          (item: string) => item
+        )
       }
-    }.onReady((ctx: NavDestinationContext) => {
+    }
+    .onReady((ctx: NavDestinationContext) => {
       this.pageStack = ctx.pathStack;
     })
     .backgroundColor($r('app.color.bgColor'))
@@ -31,7 +37,7 @@ export struct HomePage {
 }
 
 @Builder
-function Header() {
+function header() {
   Column() {
     Text('Headlines')
       .fontSize('45px')

@@ -7,8 +7,8 @@ News Sample App lets users browse the latest news headlines and read full articl
 # Preview
 
 <div>
-    <img src="./screenshots/ss1.png" width="25%"/>
-    <img src="./screenshots/ss2.png" width="25%"/>
+<img src="./screenshots/ss1.png" width="24%"/>
+<img src="./screenshots/ss2.png" width="24%"/>
 </div>
 
 # Use Cases

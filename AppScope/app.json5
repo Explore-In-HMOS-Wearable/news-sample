@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.hmosdemos.newssample",
+    "bundleName": "com.hmosdemos.wearable.news_sample",
     "vendor": "hmosdemos",
     "versionCode": 1000000,
     "versionName": "1.0.0",

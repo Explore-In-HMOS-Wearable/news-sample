@@ -6,7 +6,6 @@ export struct HeadlineFlow {
   @State currentIndex: number = 0;
   @State title: string = '';
   context: UIContext = this.getUIContext();
-
   private newsData: NewsItem[] = [
     {
       id: 1,
@@ -32,9 +31,13 @@ export struct HeadlineFlow {
     NavDestination() {
       Stack() {
         Swiper() {
-          ForEach(this.newsData, (item: NewsItem) => {
-            this.NewsCard(item)
-          })
+          ForEach(
+            this.newsData,
+            (item: NewsItem) => {
+              this.NewsCard(item)
+            },
+            (item: NewsItem) => item.title
+          )
         }
         .index(this.currentIndex)
         .indicator(true)
